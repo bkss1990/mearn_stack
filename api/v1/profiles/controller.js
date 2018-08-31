@@ -370,3 +370,13 @@ exports.findUser = (req, res) => {
         })
         .catch(err => res.status(500).json(err));
 };
+
+
+exports.uploadeProfilePic = (req, res)=>{
+    var fullUrl = req.protocol + '://' + req.get('host') + "/tempImages/" + req.file.filename;
+	res.json({
+		'message': 'File uploaded successfully ',
+		filename: fullUrl
+	});
+
+}

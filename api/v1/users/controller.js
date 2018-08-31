@@ -3,7 +3,7 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../../config/keys');
-const passport = require('passport');
+// const passport = require('passport');
 const helper = require('../../../helpers');
 
 /**
@@ -29,7 +29,7 @@ exports.create = (req, res) => {
     User.findOne({ email: req.body.email })
         .then(user => {
             if (user) {
-                return res.status(400).json({email: 'Validation Error: Email already exists'});
+                return res.status(400).json({ email: 'Validation Error: Email already exists' });
             } else {
                 const avatar = gravatar.url(req.body.email, {
                     s: '200', // Size
@@ -83,7 +83,7 @@ exports.login = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    User.findOne({email})
+    User.findOne({ email })
         .then(user => {
             if (!user) {
                 return res.status(404).json({ email: 'User not found' });

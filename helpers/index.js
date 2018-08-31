@@ -121,7 +121,6 @@ exports.validateProfileEdu = data => {
 
 exports.validateProfile = data => {
     let errors = {};
-
     siteUrls = [
         "website"
     ];
@@ -153,6 +152,8 @@ exports.validateProfile = data => {
 
 };
 
+
+
 const isEmpty = value => {
     return (
         value === undefined ||
@@ -161,3 +162,24 @@ const isEmpty = value => {
         (typeof value === 'string' && value.trim().length === 0)
     );
 };
+
+ // Upload Profile picture
+
+
+/*  exports.uploadProfilePic = (upload.single('image'), data)=>{
+
+	var fullUrl = req.protocol + '://' + req.get('host') + "/tempImages/" + req.file.filename;
+	res.json({
+		'message': 'File uploaded successfully ',
+		filename: fullUrl
+	});
+
+ } 
+ */
+/* router.post('/upload', upload.single('image'), function (req, res) {
+	var fullUrl = req.protocol + '://' + req.get('host') + "/tempImages/" + req.file.filename;
+	res.json({
+		'message': 'File uploaded successfully ',
+		filename: fullUrl
+	});
+}); */

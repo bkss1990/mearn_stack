@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import TextFieldGroup from '../shared/TextGroupComponent';
 import TextFieldArea from '../shared/TextAreaComponent';
 import SelectList from '../shared/SelectListComponent';
+// import {ImageUploadField} from 'react-image-file'
+
 
 export class EditProfile extends Component {
     constructor(props) {
@@ -16,9 +18,16 @@ export class EditProfile extends Component {
             skills: '',
             githubusername: '',
             bio: '',
-            errors: {}
+            errors: {},
+            // files: []
+
         }
+
+        // this.onDrop = this.onDrop.bind(this);
+
     }
+
+  
 
     componentDidMount() {
         this.props.getCurrentProfile();
@@ -26,11 +35,11 @@ export class EditProfile extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
-            this.setState({errors: nextProps.errors})
+            this.setState({ errors: nextProps.errors })
         }
 
         if (nextProps.profile.profile) {
-            const {skills, social, ...profile} = nextProps.profile.profile;
+            const { skills, social, ...profile } = nextProps.profile.profile;
             this.setState(prevState => ({
                 ...prevState,
                 ...profile,
@@ -60,7 +69,7 @@ export class EditProfile extends Component {
     };
 
     render() {
-        const {errors} = this.state;
+        const { errors } = this.state;
         const options = [
             { label: '* Select Status', value: 0 },
             { label: 'IT Intern', value: 'IT Intern' },
@@ -72,8 +81,13 @@ export class EditProfile extends Component {
         ];
         return (
             <div className="create-profile">
-                <div className="container padd">
+                <div className="container">
                     <div className="row">
+
+                        <div className="col-md-4">
+
+                          {/* place for image upload */}
+                        </div>
                         <div className="col-md-8 m-auto">
                             <h1 className="display-4 tex-center">Edit Profile</h1>
                             <small className="d-block pb-3">
@@ -86,7 +100,7 @@ export class EditProfile extends Component {
                                     info="A unique handle for your profile URL. Your full name, company name, nickname..."
                                     error={errors.handle}
                                     placeholder="* Profile Handle"
-                                    onChange={this.onChange}/>
+                                    onChange={this.onChange} />
 
                                 <SelectList
                                     name="status"
@@ -94,7 +108,7 @@ export class EditProfile extends Component {
                                     error={errors.status}
                                     options={options}
                                     info="Give us an idea where you at in your career"
-                                    onChange={this.onChange}/>
+                                    onChange={this.onChange} />
 
                                 <TextFieldGroup
                                     name="company"
@@ -102,7 +116,7 @@ export class EditProfile extends Component {
                                     info="Could be your own company or one you work for"
                                     error={errors.company}
                                     placeholder="Company"
-                                    onChange={this.onChange}/>
+                                    onChange={this.onChange} />
 
                                 <TextFieldGroup
                                     name="website"
@@ -110,7 +124,7 @@ export class EditProfile extends Component {
                                     info="Could be your own website or a company one"
                                     error={errors.website}
                                     placeholder="Website"
-                                    onChange={this.onChange}/>
+                                    onChange={this.onChange} />
 
                                 <TextFieldGroup
                                     name="location"
@@ -118,7 +132,7 @@ export class EditProfile extends Component {
                                     info="City or city & state suggested (eg. Belgrade, SR)"
                                     error={errors.location}
                                     placeholder="Location"
-                                    onChange={this.onChange}/>
+                                    onChange={this.onChange} />
 
                                 <TextFieldGroup
                                     name="skills"
@@ -126,7 +140,7 @@ export class EditProfile extends Component {
                                     info="Please use comma separated values (eg. HTML, CSS, Javascript...)"
                                     error={errors.skills}
                                     placeholder="* Dev Skills"
-                                    onChange={this.onChange}/>
+                                    onChange={this.onChange} />
 
                                 <TextFieldGroup
                                     name="githubusername"
@@ -134,7 +148,7 @@ export class EditProfile extends Component {
                                     info="Include your Github Username"
                                     error={errors.githubusername}
                                     placeholder="Github Username"
-                                    onChange={this.onChange}/>
+                                    onChange={this.onChange} />
 
                                 <TextFieldArea
                                     placeholder="Short Bio"
@@ -142,13 +156,18 @@ export class EditProfile extends Component {
                                     value={this.state.bio}
                                     info="Tell us little about yourself"
                                     error={errors.bio}
-                                    onChange={this.onChange}/>
+                                    onChange={this.onChange} />
 
-                                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4"/>
+                                <input type="submit" value="Submit" className="btn btn-info btn-block mt-4" />
                             </form>
                         </div>
+
+
                     </div>
                 </div>
+
+
+
             </div>
         )
     }

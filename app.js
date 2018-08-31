@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -28,11 +29,14 @@ app.use(cors(options));
 
 // Middlewares/Services
 app.use(passport.initialize());
+
+// Adding middleware to server profile pic 
+app.use(express.static(path.join(__dirname, 'uploadedimage')));
+
 require('./services/passport')(passport);
 
 // API Routes
 require('./routes')(app);
-
 // Connect to MongoDB
 mongoose
     .connect(db)

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames';
 
 const SelectList = ({
-                      name,
-                      value,
-                      error,
-                      info,
-                      options,
-                      onChange
-                  }) => {
+    name,
+    value,
+    error,
+    info,
+    options,
+    onChange
+}) => {
     const selectOptions = options.map(option => (
         <option key={option.label} value={option.name}>
             {option.label}

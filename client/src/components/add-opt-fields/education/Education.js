@@ -16,8 +16,8 @@ class Education extends Component {
                 <td>{x.school}</td>
                 <td>{x.degree}</td>
                 <td>
-                    <Moment format="YYYY/MM/DD">{x.from}</Moment> -
-                    {x.to === null ? (' Current') : (<Moment format="YYYY/MM/DD">{x.to}</Moment>)}
+                    <Moment format="DD/MM/YYYY">{x.from}</Moment> -
+                    {x.to === null ? (' Current') : (<Moment format="DD/MM/YYYY">{x.to}</Moment>)}
                 </td>
                 <td>
                     <button onClick={this.onDeleteClick.bind(this, x._id)} className="btn btn-danger">Delete</button>

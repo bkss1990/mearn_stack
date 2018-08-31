@@ -11,10 +11,10 @@ class Background extends Component {
             <li key={exp._id} className="list-group-item">
                 <h4>{exp.company}</h4>
                 <p>
-                    <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
+                    <Moment format="DD/MM/YYYY">{exp.from}</Moment> -
                     {exp.to === null
                         ? (' Now')
-                        : (<Moment format="YYYY/MM/DD">{exp.to}</Moment>)}
+                        : (<Moment format="DD/MM/YYYY">{exp.to}</Moment>)}
                 </p>
                 <p><strong>Position:</strong> {exp.title}</p>
                 <p>
@@ -37,10 +37,10 @@ class Background extends Component {
             <li key={edu._id} className="list-group-item">
                 <h4>{edu.school}</h4>
                 <p>
-                    <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
+                    <Moment format="DD/MM/YYYY">{edu.from}</Moment> -
                     {edu.to === null
                         ? (' Now')
-                        : (<Moment format="YYYY/MM/DD">{edu.to}</Moment>)}
+                        : (<Moment format="DD/MM/YYYY">{edu.to}</Moment>)}
                 </p>
                 <p><strong>Degree:</strong> {edu.degree}</p>
                 <p><strong>Field of Study:</strong> {edu.fieldofstudy}</p>

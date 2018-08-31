@@ -17,7 +17,7 @@ export class Profile extends Component {
     }
 
     render() {
-        const { profile, loading } =  this.props.profile;
+        const { profile, loading } = this.props.profile;
         let profileUI;
 
         if (profile === null || loading) {
@@ -31,14 +31,14 @@ export class Profile extends Component {
                                 Back To Profiles
                             </Link>
                         </div>
-                        <div className="col-md-6"/>
+                        <div className="col-md-6" />
                     </div>
-                    <ProfileHeader profile={profile}/>
-                    <About profile={profile}/>
+                    <ProfileHeader profile={profile} />
+                    <About profile={profile} />
                     <Background experience={profile.experience} education={profile.education} />
                     {
                         profile.githubusername
-                            ? (<Github username={profile.githubusername}/>)
+                            ? (<Github username={profile.githubusername} />)
                             : null
                     }
                 </div>
@@ -50,7 +50,7 @@ export class Profile extends Component {
                 <div className="container padd">
                     <div className="row">
                         <div className="col-md-12">
-                            { profileUI }
+                            {profileUI}
                         </div>
                     </div>
                 </div>

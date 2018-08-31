@@ -24,7 +24,7 @@ class Navigation extends Component {
                         <i className="fa fa-address-card">
 
                         </i>
-                        Dashboard
+                        User Dashboard
                     </Link>
                 </li>
                 <li className="nav-item">
@@ -73,7 +73,7 @@ class Navigation extends Component {
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
                 <div className="container">
                     <Link className="navbar-brand" to="/">
-                        DevConnect
+                        Home 
                     </Link>
                     <button
                         className="navbar-toggler"
@@ -89,7 +89,7 @@ class Navigation extends Component {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/profiles">
                                     {' '}
-                                    Developers
+                                    List Users
                                 </Link>
                             </li>
                         </ul>
